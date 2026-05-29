@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PIPI | Official Website</title>
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -37,12 +39,16 @@
       max-height: 50px;
     }
 
+    .logo i {
+      font-size: 30px; /* Icon next to name */
+    }
+
     .org-name {
       color: #ffffff;
       font-size: 20px;
       font-weight: bold;
       letter-spacing: 1px;
-      white-space: nowrap;
+      /* Removed white-space: nowrap; to allow wrapping on mobile */
     }
 
     nav ul {
@@ -121,11 +127,67 @@
       padding: 25px;
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center; /* Center icons */
+    }
+
+    .card i {
+      font-size: 40px;
+      color: #0b1c2d;
+      margin-bottom: 10px;
     }
 
     .card h3 {
       margin-bottom: 10px;
       color: #0b1c2d;
+    }
+
+    /* Newsletter Form Styles */
+    #newsletter {
+      background: #e9ecef;
+      text-align: center;
+    }
+
+    #newsletter form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    #newsletter input, #newsletter button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #newsletter button {
+      background: #0b1c2d;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #newsletter button:hover {
+      background: #162d45;
+    }
+
+    #newsletter .consent {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    /* Activities List with Icons */
+    #contact ul li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #contact ul li i {
+      color: #0b1c2d;
+      font-size: 20px;
     }
 
     footer {
@@ -136,14 +198,53 @@
       margin-top: 40px;
     }
 
+    footer .socials {
+      margin-bottom: 15px;
+    }
+
+    footer .socials a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer .socials a:hover {
+      color: #d4af37;
+    }
+
     @media (max-width: 768px) {
       header {
         flex-direction: column;
         gap: 15px;
+        padding: 20px;
+      }
+
+      .org-name {
+        font-size: 18px; /* Smaller font on mobile */
+        text-align: center;
+      }
+
+      .hero {
+        padding: 80px 20px;
       }
 
       .hero h1 {
         font-size: 32px;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .org-name {
+        font-size: 16px; /* Even smaller for very small screens */
+      }
+
+      .hero h1 {
+        font-size: 28px;
       }
     }
   </style>
@@ -153,9 +254,10 @@
   <!-- Header -->
   <header>
     <div class="logo">
-        <img src="logo.png" alt="PIPI Logo" />
-        <span class="org-name">Platform for Innovation and Productive Ideas (PIPI)</span>
-      </div>
+      <img src="logo.png" alt="PIPI Logo" />
+      <i class="fas fa-lightbulb"></i> <!-- Added icon for homepage flair -->
+      <span class="org-name">Platform for Innovation and Productive Ideas (PIPI)</span>
+    </div>
     <nav>
       <!-- Navigation Menu -->
       <ul>
@@ -191,46 +293,75 @@
     </p>
   </section>
 
-  <!-- Services Section -->
+  <!-- Objectives Section (was Services) -->
   <section id="services">
     <div class="section-title">
       <h2>Our Objectives</h2>
     </div>
     <div class="cards">
       <div class="card">
+        <i class="fas fa-brain"></i> <!-- Icon for Idea Generation -->
         <h3>Idea Generation</h3>
         <p>Encouraging open ideation and brainstorming to spark novel and impactful solutions.</p>
       </div>
       <div class="card">
+        <i class="fas fa-rocket"></i> <!-- Icon for Productive Innovation -->
         <h3>Productive Innovation</h3>
         <p>Transforming ideas into tangible results such as new products, services, and process improvements.</p>
       </div>
       <div class="card">
+        <i class="fas fa-users"></i> <!-- Icon for Collaboration -->
         <h3>Collaboration</h3>
         <p>Facilitating collaboration among innovators, entrepreneurs, experts, and organizations.</p>
       </div>
       <div class="card">
+        <i class="fas fa-tools"></i> <!-- Icon for Resources & Guidance -->
         <h3>Resources & Guidance</h3>
         <p>Providing tools, mentorship, and guidance for evaluating, validating, and executing ideas.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Activities Section (was Contact) -->
   <section id="contact">
     <div class="section-title">
       <h2>Activities & Features</h2>
     </div>
     <ul style="max-width:800px;margin:auto;line-height:1.8;">
-      <li>Idea challenges, technical paper contests, workshops, and conferences</li>
-      <li>Digital platform for submitting, discussing, and voting on ideas</li>
-      <li>Research support and end-to-end innovation management</li>
-      <li>Focus on both incremental improvements and breakthrough innovations</li>
+      <li><i class="fas fa-trophy"></i> Idea challenges, technical paper contests, workshops, and conferences</li>
+      <li><i class="fas fa-laptop-code"></i> Digital platform for submitting, discussing, and voting on ideas</li>
+      <li><i class="fas fa-search"></i> Research support and end-to-end innovation management</li>
+      <li><i class="fas fa-lightbulb"></i> Focus on both incremental improvements and breakthrough innovations</li>
     </ul>
+  </section>
+
+  <!-- New Newsletter Subscription Section -->
+  <section id="newsletter">
+    <div class="section-title">
+      <h2>Subscribe to Our Monthly Newsletter</h2>
+      <p>Stay updated on energy innovations, events, and opportunities in Africa.</p>
+    </div>
+    <form action="https://formspree.io/f/your-form-id" method="POST"> <!-- Replace with your Formspree endpoint -->
+      <input type="text" name="first_name" placeholder="First Name" />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <label class="consent">
+        <input type="checkbox" name="consent" required />
+        I consent to receive emails from PIPI (required for legal compliance).
+      </label>
+      <button type="submit">Subscribe</button>
+    </form>
   </section>
 
   <!-- Footer -->
   <footer>
+    <div class="socials">
+      <a href="https://www.facebook.com/share/16nmS9NgJU/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.linkedin.com/company/platform-for-innovation-and-productive-ideas/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://x.com/pipiplatform?t=8C-g6muObvsmPTsLvP6eUA&s=09" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://tiktok.com/@pipiplatform" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <p>Phone: +2347057944652 | Email: pipiplatform008@gmail.com</p>
+    <p>Address: 17 Touggourt Street, Wuse Zone 2, Abuja</p>
     <p>&copy; 2026 PIPI. All Rights Reserved.</p>
   </footer>
 
